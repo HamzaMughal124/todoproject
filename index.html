@@ -42,7 +42,7 @@
                   <input type="hidden" id="saveindex" />
                 </div>
                 <button type="button" class="btn btn-success" id="addtaskbtn">Add Task</button>
-                <button type="button" class="btn btn-success" id="savetaskbtn" style="display: none">Save Task</button>
+                <!-- <button type="button" class="btn btn-success" id="savetaskbtn" style="display: none">Save Task</button> -->
               </div>
               <div class="to-do-output">
                 <table class="table table-striped mt-3 mb-0" id="addedtasklist"></table>
@@ -51,7 +51,42 @@
           </div>
         </div>
       </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+            </div>
+            <div class="modal-body">
+              <div class="form-row">
+                <div class="col-9 mr-sm-2">
+                  <input type="text" class="form-control" placeholder="Enter your task" id="modalinput" />
+                  <input type="hidden" id="saveindex" />
+                </div>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="savetaskbtn">
+                  Save Task
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
   </body>
 </html>

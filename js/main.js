@@ -3,7 +3,8 @@ let addtaskinput = document.getElementById("addtaskinput");
 let addtaskbtn = document.getElementById("addtaskbtn");
 let savetaskbtn = document.getElementById("savetaskbtn");
 let searchtextbox = document.getElementById("searchtextbox");
-
+let modalinput = document.getElementById("modalinput");
+console.log(modalinput);
 //  Store Data in Localstorage
 addtaskbtn.addEventListener("click", () => {
   let value = addtaskinput.value;
@@ -35,7 +36,7 @@ function showData() {
     html += `<tr> 
     <th scope="row">${index + 1}</th>
     <td>${item}</td>
-    <td><button type="button" clas="text-primary" onclick="Edit(${index})"><i class="fa fa-edit"></i>Edit</button></td>
+    <td><button type="button" clas="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Edit(${index})"><i class="fa fa-edit"></i>Edit</button></td>
     <td><button type="button" clas="text-danger" onclick="Delete(${index})"><i class="fa fa-trash"></i>Delete</button></td>
     </tr>`;
   });
@@ -48,10 +49,10 @@ function Edit(index) {
   saveindex.value = index;
   let taskArray = localStorage.getItem("localtask");
   taskObj = JSON.parse(taskArray);
-  addtaskinput.value = taskObj[index];
+  modalinput.value = taskObj[index];
   localStorage.setItem("localtask", JSON.stringify(taskObj));
-  savetaskbtn.style.display = "block";
-  addtaskbtn.style.display = "none";
+  // savetaskbtn.style.display = "block";
+  // addtaskbtn.style.display = "none";
 }
 
 // After Edit Save Data
@@ -59,11 +60,11 @@ savetaskbtn.addEventListener("click", () => {
   let saveindex = document.getElementById("saveindex").value;
   let taskArray = localStorage.getItem("localtask");
   taskObj = JSON.parse(taskArray);
-  taskObj[saveindex] = addtaskinput.value;
-  savetaskbtn.style.display = "none";
-  addtaskbtn.style.display = "block";
+  taskObj[saveindex] = modalinput.value;
+  // savetaskbtn.style.display = "none";
+  // addtaskbtn.style.display = "block";
   localStorage.setItem("localtask", JSON.stringify(taskObj));
-  addtaskinput.value = "";
+  modalinput.value = "";
   showData();
 });
 
