@@ -4,7 +4,7 @@ let addtaskbtn = document.getElementById("addtaskbtn");
 let savetaskbtn = document.getElementById("savetaskbtn");
 let searchtextbox = document.getElementById("searchtextbox");
 let modalinput = document.getElementById("modalinput");
-console.log(modalinput);
+
 //  Store Data in Localstorage
 addtaskbtn.addEventListener("click", () => {
   let value = addtaskinput.value;
@@ -51,20 +51,17 @@ function Edit(index) {
   taskObj = JSON.parse(taskArray);
   modalinput.value = taskObj[index];
   localStorage.setItem("localtask", JSON.stringify(taskObj));
-  // savetaskbtn.style.display = "block";
-  // addtaskbtn.style.display = "none";
 }
 
 // After Edit Save Data
 savetaskbtn.addEventListener("click", () => {
-  let saveindex = document.getElementById("saveindex").value;
-  let taskArray = localStorage.getItem("localtask");
-  taskObj = JSON.parse(taskArray);
-  taskObj[saveindex] = modalinput.value;
-  // savetaskbtn.style.display = "none";
-  // addtaskbtn.style.display = "block";
-  localStorage.setItem("localtask", JSON.stringify(taskObj));
-  modalinput.value = "";
+  if (modalinput.value.trim() != 0) {
+    let saveindex = document.getElementById("saveindex").value;
+    let taskArray = localStorage.getItem("localtask");
+    taskObj = JSON.parse(taskArray);
+    taskObj[saveindex] = modalinput.value;
+    localStorage.setItem("localtask", JSON.stringify(taskObj));
+  }
   showData();
 });
 

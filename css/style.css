@@ -25,6 +25,9 @@ header .navbar {
 header nav.navbar .navbar-brand {
   color: #fff;
 }
+header nav.navbar .navbar-brand:hover {
+  color: #fff;
+}
 section.todo-outer {
   width: 100%;
   float: left;
